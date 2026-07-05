@@ -68,23 +68,27 @@ for wav in tqdm(wav_files):
         n_mfcc=13
     )
 
-    rows.append({
-        "file": wav.name,
-        "duration": duration,
-        "samplerate": sr,
-        "rms": rms,
-        "peak": peak,
-        "dynamic_range": dynamic_range,
-        "zcr": zcr,
-        "spectral_centroid": centroid,
-        "bandwidth": bandwidth,
-        "rolloff": rolloff,
-        "mfcc_mean": mfcc.mean(),
-        "mfcc_std": mfcc.std(),
-        "silent": rms < 0.005,
-        "clipped": peak > 0.99
-    })
+    row = {
+    "file": wav.name,
+    "duration": duration,
+    "samplerate": sr,
+    "rms": rms,
+    "peak": peak,
+    "dynamic_range": dynamic_range,
+    "zcr": zcr,
+    "spectral_centroid": centroid,
+    "bandwidth": bandwidth,
+    "rolloff": rolloff,
+    "silent": rms < 0.005,
+    "clipped": peak > 0.99,
+    }
 
+    # Compute statistics for each MFCC coefficient
+    for i in range(13):
+        row[f"mfcc_{i+1}_mean"] = np.mean(mfcc[i])
+        row[f"mfcc_{i+1}_std"] = np.std(mfcc[i])
+
+    rows.append(row)
 # ============================================================
 # Create dataframe
 # ============================================================
@@ -132,7 +136,7 @@ for col in columns:
 
 # samples = random.sample(wav_files, min(12, len(wav_files)))
 
-samples = random.sample(wav_files, 5)
+samples = random.sample(wav_files, 3)
 
 for wav in samples:
 
