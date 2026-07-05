@@ -104,7 +104,7 @@ if "Murmur" in patients.columns:
 
     plt.tight_layout()
 
-    plt.savefig("murmur_distribution.png")
+    plt.savefig("plots/eda/murmur_distribution.png")
 
 ###########################################################################
 # Outcome distribution
@@ -120,7 +120,7 @@ if "Outcome" in patients.columns:
 
     plt.tight_layout()
 
-    plt.savefig("outcome_distribution.png")
+    plt.savefig("plots/eda/outcome_distribution.png")
 
 ###########################################################################
 # Sex
@@ -136,7 +136,7 @@ if "Sex" in patients.columns:
 
     plt.tight_layout()
 
-    plt.savefig("sex_distribution.png")
+    plt.savefig("plots/eda/sex_distribution.png")
 
 ###########################################################################
 # Age
@@ -152,7 +152,7 @@ if "Age" in patients.columns:
 
     plt.tight_layout()
 
-    plt.savefig("age_groups.png")
+    plt.savefig("plots/eda/age_groups.png")
 
 ###########################################################################
 # Recording locations
@@ -166,7 +166,7 @@ plt.title("Recording Locations")
 
 plt.tight_layout()
 
-plt.savefig("recording_locations.png")
+plt.savefig("plots/eda/recording_locations.png")
 
 ###########################################################################
 # Recording duration
@@ -184,7 +184,7 @@ plt.title("Recording Duration")
 
 plt.tight_layout()
 
-plt.savefig("duration_histogram.png")
+plt.savefig("plots/eda/duration_histogram.png")
 
 ###########################################################################
 # Number of recordings per patient
@@ -204,7 +204,7 @@ plt.title("Recordings per Patient")
 
 plt.tight_layout()
 
-plt.savefig("recordings_per_patient.png")
+plt.savefig("plots/eda/recordings_per_patient.png")
 
 ###########################################################################
 # Sampling rates
