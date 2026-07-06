@@ -4,12 +4,12 @@ from tqdm import tqdm
 from src.features.loader import load_audio, get_all_files
 from src.features.extractor import extract_features
 
-DATA_DIR = "data/training_data"
+DATA_DIR = "data/raw/training_data"
 
 # ---------------------------------------------------------
 # Load metadata (patient-level table)
 # ---------------------------------------------------------
-metadata_df = pd.read_csv("data/training_data.csv")
+metadata_df = pd.read_csv("data/raw/training_data.csv")
 metadata_df["Patient ID"] = metadata_df["Patient ID"].astype(str)
 
 metadata_lookup = metadata_df.set_index("Patient ID").to_dict(orient="index")
@@ -17,7 +17,7 @@ metadata_lookup = metadata_df.set_index("Patient ID").to_dict(orient="index")
 # ---------------------------------------------------------
 # Load patient splits
 # ---------------------------------------------------------
-splits_df = pd.read_csv("patient_splits.csv")
+splits_df = pd.read_csv("data/raw/patient_splits.csv")
 splits_df["Patient ID"] = splits_df["Patient ID"].astype(str)
 
 split_lookup = dict(zip(splits_df["Patient ID"], splits_df["split"]))
@@ -116,7 +116,7 @@ df = df[base_cols + feature_cols]
 # ---------------------------------------------------------
 # Save
 # ---------------------------------------------------------
-df.to_csv("feature_dataset.csv", index=False)
+df.to_csv("data\\processed\\feature_dataset.csv", index=False)
 
 print("\nDone!")
 print("Shape:", df.shape)
