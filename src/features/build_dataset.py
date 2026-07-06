@@ -1,8 +1,8 @@
 import pandas as pd
 from tqdm import tqdm
 
-from features.loader import load_audio, get_all_files
-from features.extractor import extract_features
+from src.features.loader import load_audio, get_all_files
+from src.features.extractor import extract_features
 
 DATA_DIR = "data/training_data"
 

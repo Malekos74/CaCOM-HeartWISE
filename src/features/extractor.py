@@ -1,7 +1,7 @@
-from features.preprocessing import preprocess
-from features.time_features import extract_time_features
-from features.frequency_features import extract_frequency_features
-from features.mfcc_features import extract_mfcc_features
+from src.features.preprocessing import preprocess
+from src.features.time_features import extract_time_features
+from src.features.frequency_features import extract_frequency_features
+from src.features.mfcc_features import extract_mfcc_features
 
 
 def extract_features(signal, sr):
