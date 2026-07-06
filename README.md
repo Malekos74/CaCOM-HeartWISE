@@ -158,6 +158,7 @@ Energy in clinically meaningful frequency ranges:
 # 🎵 3. MFCC Features
 
 MFCCs represent the spectral envelope of the signal.
+(Mathematical model of how the human ear perceives sound)
 
 For each coefficient (1–13):
 
