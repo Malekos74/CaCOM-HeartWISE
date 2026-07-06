@@ -2,7 +2,7 @@ import pandas as pd
 from sklearn.model_selection import train_test_split
 
 INPUT_CSV = "data/training_data.csv"
-OUTPUT_CSV = "data/patient_splits.csv"
+OUTPUT_CSV = "patient_splits.csv"
 
 TEST_SIZE = 0.15
 VAL_SIZE = 0.15
