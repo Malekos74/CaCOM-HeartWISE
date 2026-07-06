@@ -6,7 +6,7 @@ import librosa
 import soundfile as sf
 from tqdm import tqdm
 
-DATA_DIR = Path("data/raw/training_data")
+DATA_DIR = Path("../data/raw/training_data")
 
 patients = []
 recordings = []

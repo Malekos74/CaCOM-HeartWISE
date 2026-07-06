@@ -14,7 +14,7 @@ from tqdm import tqdm
 # Configuration
 # ============================================================
 
-DATA_DIR = Path("data/raw/training_data")
+DATA_DIR = Path("../data/raw/training_data")
 OUTPUT_DIR = Path("plots/eda/signal_analysis")
 
 OUTPUT_DIR.mkdir(exist_ok=True)
