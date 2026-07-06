@@ -17,7 +17,7 @@ metadata_lookup = metadata_df.set_index("Patient ID").to_dict(orient="index")
 # ---------------------------------------------------------
 # Load patient splits
 # ---------------------------------------------------------
-splits_df = pd.read_csv("data/raw/patient_splits.csv")
+splits_df = pd.read_csv("data/processed/patient_splits.csv")
 splits_df["Patient ID"] = splits_df["Patient ID"].astype(str)
 
 split_lookup = dict(zip(splits_df["Patient ID"], splits_df["split"]))
