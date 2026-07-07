@@ -4,7 +4,7 @@ from src.features.frequency_features import extract_frequency_features
 from src.features.mfcc_features import extract_mfcc_features
 
 
-def extract_features(signal, sr):
+def extract_features(signal, sr, n_mfcc):
 
     signal = preprocess(signal, sr)
 
@@ -12,6 +12,6 @@ def extract_features(signal, sr):
 
     features.update(extract_time_features(signal))
     features.update(extract_frequency_features(signal, sr))
-    features.update(extract_mfcc_features(signal, sr))
+    features.update(extract_mfcc_features(signal, sr, n_mfcc))
 
     return features

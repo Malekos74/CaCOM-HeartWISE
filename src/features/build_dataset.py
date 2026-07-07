@@ -5,6 +5,8 @@ from src.features.loader import load_audio, get_all_files
 from src.features.extractor import extract_features
 
 DATA_DIR = "../../data/raw/training_data"
+OUTPUT_FILE = "../../data/processed/feature_dataset.csv"
+N_MFCC = 5
 
 # ---------------------------------------------------------
 # Load metadata (patient-level table)
@@ -35,7 +37,7 @@ rows = []
 for file in tqdm(files, desc="Extracting features"):
 
     signal, sr = load_audio(file)
-    feature_dict = extract_features(signal, sr)
+    feature_dict = extract_features(signal, sr, N_MFCC)
 
     # Parse filename: 2530_AV.wav
     patient_id = file.stem.split("_")[0]
@@ -116,7 +118,7 @@ df = df[base_cols + feature_cols]
 # ---------------------------------------------------------
 # Save
 # ---------------------------------------------------------
-df.to_csv("data\\processed\\feature_dataset.csv", index=False)
+df.to_csv(OUTPUT_FILE, index=False)
 
 print("\nDone!")
 print("Shape:", df.shape)
