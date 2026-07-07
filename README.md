@@ -1,237 +1,477 @@
 # CaCOM-HeartWISE
 
-A machine learning pipeline for **heart sound classification** using the PhysioNet CirCor DigiScope dataset.
+Automated heart sound classification using machine learning on the CirCor DigiScope Phonocardiogram dataset.
 
-Dataset:  
-https://www.physionet.org/content/circor-heart-sound/1.0.3/
+The goal of this project is to predict **patient outcomes** from heart sound recordings by combining handcrafted audio feature engineering with classical machine learning and deep learning models.
 
----
-
-# 📌 Project Overview
-
-This project aims to classify heart sound recordings into normal vs abnormal (murmur detection) using:
-
-- Handcrafted audio features
-- Classical machine learning models
-- Deep learning models on spectrograms
-
-The pipeline is structured in four stages:
+**Dataset**: https://www.physionet.org/content/circor-heart-sound/1.0.3/
 
 ---
 
-# 🧭 Pipeline Roadmap
+# Project Overview
 
-## 1. Exploratory Data Analysis (EDA)
-Understanding dataset structure and quality:
+Heart auscultation remains one of the primary diagnostic tools for detecting cardiovascular abnormalities. This project investigates automated heart sound classification using the CirCor DigiScope Phonocardiogram dataset.
 
-- Class balance (Normal vs Abnormal / Murmur vs No Murmur)
-- Recording duration distribution
-- Patient demographics
-- Recording location analysis
-- Noise and quality inspection
+The project explores multiple approaches ranging from classical signal processing and feature engineering to modern deep learning methods.
 
----
+Current objectives include:
 
-## 2. Signal Analysis
-Visual and spectral inspection of audio signals:
-
-- Raw waveforms
-- FFT / frequency content
-- Mel spectrograms
-- Noise patterns and artifacts
+* Exploratory data analysis
+* Signal analysis
+* Audio feature extraction
+* Classical machine learning baselines
+* Deep learning on spectrograms
+* Performance comparison and ablation studies
 
 ---
 
-## 3. Feature Extraction
-Conversion of audio into numerical representations:
+# Project Status
 
-### Feature groups:
-- Time-domain features
-- Frequency-domain features
-- MFCC features (with deltas)
-- Heart-cycle features (from `.tsv` annotations)
+## Completed
 
----
+* Exploratory dataset statistics
+* Signal quality analysis
+* Handcrafted feature extraction
+* Patient-level train / validation / test splitting
 
-## 4. Modeling
+* Logistic Regression baseline
 
-### Classical ML (feature-based)
-- Logistic Regression
-- Random Forest
-- XGBoost
+## In Progress
 
-### Deep Learning (spectrogram-based)
-- CNNs on log-Mel spectrograms
-- Pretrained audio models (AST, M2D, etc.)
-- Transformer-based architectures
+* Random Forest baseline
+* XGBoost baseline
+* Hyperparameter tuning
 
----
+## Planned
 
-# 📊 Signal Statistics (`signal_statistics.csv`)
-
-Each row represents one `.wav` recording with global signal properties used for EDA and quality control.
-
-## Columns
-
-| Feature | Description |
-|--------|-------------|
-| **file** | Audio file name |
-| **duration** | Recording length (seconds) |
-| **samplerate** | Sampling frequency (Hz, typically 4000 Hz) |
-| **rms** | Average signal energy (loudness) |
-| **peak** | Maximum amplitude |
-| **dynamic_range** | Ratio of peak to RMS energy |
-| **zcr** | Zero crossing rate (noise indicator) |
-| **spectral_centroid** | Frequency “center of mass” |
-| **bandwidth** | Spread of frequency content |
-| **rolloff** | Frequency below which 85% energy is contained |
-| **mfcc_mean** | Average MFCC value |
-| **mfcc_std** | MFCC variability |
-| **silent** | Low-energy recording flag |
-| **clipped** | Signal saturation flag |
+* CNN baseline
+* Transformer-based models
+* Feature importance analysis
+* Model explainability
+* Ensemble methods
 
 ---
 
-## 🧪 Quality Control Flags
+# Repository Structure
 
-- **silent** → potentially unusable recordings
-- **clipped** → distorted recordings due to amplitude saturation
+> **TODO:** Add the complete repository tree.
+
+## `data/`
+
+Contains all raw and processed datasets.
+
+Typical contents:
+
+* `raw/training_data.csv`
+* `processed/patient_splits.csv`
+* `processed/feature_dataset.csv`
+
+---
+## `src/` 
+
+### `features/`
+
+Implements all signal processing and feature extraction code.
+
+Responsibilities:
+
+* Audio loading
+* Signal preprocessing
+* Time-domain features
+* Frequency-domain features
+* MFCC extraction
+* Feature aggregation
 
 ---
 
-# ⚙️ Feature Extraction Overview
+### `models/`
 
-Each audio recording is transformed into a **fixed-length feature vector** consisting of:
+Contains all machine learning models.
 
-- Time-domain statistics
-- Frequency-domain descriptors
-- Band-limited energy features
-- MFCC-based representations
+Current models:
 
----
+* Logistic Regression
 
-# ⏱️ 1. Time-Domain Features
+Planned:
 
-These describe waveform shape and amplitude behavior.
-
-| Feature | Description |
-|--------|-------------|
-| **rms** | Signal energy |
-| **peak** | Maximum amplitude |
-| **variance** | Signal spread |
-| **mean** | Average amplitude |
-| **std** | Standard deviation |
-| **skew** | Asymmetry of waveform |
-| **kurtosis** | Peakedness / outliers |
-| **zcr** | Zero-crossing rate (noise indicator) |
-| **dynamic_range** | Peak-to-RMS ratio |
+* Random Forest
+* XGBoost
+* Support Vector Machine
+* Neural Networks
 
 ---
 
-# 🌊 2. Frequency-Domain Features
+## `notebooks/`
 
-These describe how energy is distributed across frequencies.
-
-| Feature | Description |
-|--------|-------------|
-| **spectral_centroid** | Frequency center of mass |
-| **spectral_bandwidth** | Spread of spectrum |
-| **spectral_rolloff** | Energy concentration boundary |
-| **spectral_flatness** | Noise vs tonal structure |
+Exploratory notebooks used for experimentation and visualization.
 
 ---
 
-## 📡 Frequency Band Energy Features
+## `scripts/`
 
-Energy in clinically meaningful frequency ranges:
+> **TODO**
 
-| Feature | Frequency Range | Interpretation |
-|--------|----------------|---------------|
-| **band_energy_20_50** | 20–50 Hz | S1 / S2 fundamentals |
-| **band_energy_50_100** | 50–100 Hz | Primary heart sound energy |
-| **band_energy_100_200** | 100–200 Hz | Early murmur components |
-| **band_energy_200_400** | 200–400 Hz | Murmur activity |
-| **band_energy_400_800** | 400–800 Hz | Noise / harsh murmurs |
+Document all standalone scripts and their purpose.
+
+### `make_patient_splits.py`
+
+Create the Train/Val/Test Splits using the features generated beforehand.
 
 ---
 
-# 🎵 3. MFCC Features
+## `results/`
 
-MFCCs represent the spectral envelope of the signal.
-(Mathematical model of how the human ear perceives sound)
+> **TODO**
 
-For each coefficient (1–13):
-
-### Base features
-- **mfcc_i_mean**
-- **mfcc_i_std**
-
-### Temporal dynamics
-- **mfcc_d1_i_mean / std** → first derivative (change over time)
-- **mfcc_d2_i_mean / std** → second derivative (acceleration)
+Store trained models, evaluation metrics and generated figures.
 
 ---
 
-# 🧠 4. Feature Interpretation (Why this works)
+# Dataset
 
-Heart sounds consist of:
+## Source
 
-- S1 (lub)
-- S2 (dub)
-- Systole / diastole phases
-- Possible murmurs (abnormal turbulence)
+CirCor DigiScope Phonocardiogram Dataset
 
-These features capture:
+## Labels
 
-### Energy structure
-- RMS, peak, dynamic range
+## Dataset Variables
 
-### Frequency behavior
-- Spectral centroid, rolloff, band energy
+The CirCor DigiScope dataset provides patient-level metadata, clinical annotations, and diagnostic labels.
 
-### Noise vs signal structure
-- ZCR, spectral flatness
+| Variable | Description | Data Type | Possible Values |
+|----------|-------------|-----------|-----------------|
+| **Age** | Age category of the subject | String | Neonate, Infant, Child, Adolescent, Young adult |
+| **Sex** | Reported sex of the subject | String | Female, Male |
+| **Height** | Subject height in centimeters | Number | > 0 |
+| **Weight** | Subject weight in kilograms | Number | > 0 |
+| **Pregnancy status** | Whether the subject reported being pregnant at examination time | Boolean | True, False |
+| **Additional ID** | Secondary identifier for subjects participating in both screening campaigns | String | Subject identifier |
+| **Campaign** | Screening campaign attended by the subject | String | CC2014, CC2015 |
+| **Murmur** | Presence of a murmur according to annotator | String | Present, Absent, Unknown |
+| **Murmur locations** | Auscultation locations where at least one murmur was detected | String | Any combination of PV, TV, AV, MV, Phc separated by `+` |
+| **Most audible location** | Auscultation location where the murmur was most intense | String | PV, TV, AV, MV, Phc |
+| **Systolic murmur timing** | Timing of the murmur during systole | String | Early-systolic, Holosystolic, Late-systolic, Mid-systolic |
+| **Systolic murmur shape** | Shape of the murmur during systole | String | Crescendo, Decrescendo, Diamond, Plateau |
+| **Systolic murmur pitch** | Pitch of the systolic murmur | String | Low, Medium, High |
+| **Systolic murmur grading** | Murmur intensity according to Levine's scale | String | I/VI, II/VI, III/VI |
+| **Systolic murmur quality** | Acoustic quality of the systolic murmur | String | Blowing, Harsh, Musical |
+| **Diastolic murmur timing** | Timing of the murmur during diastole | String | Early-diastolic, Holodiastolic, Mid-diastolic |
+| **Diastolic murmur shape** | Shape of the murmur during diastole | String | Decrescendo, Plateau |
+| **Diastolic murmur pitch** | Pitch of the diastolic murmur | String | Low, Medium, High |
+| **Diastolic murmur grading** | Murmur intensity according to Levine's scale | String | I/IV, II/IV, III/IV |
+| **Diastolic murmur quality** | Acoustic quality of the diastolic murmur | String | Blowing, Harsh |
+| **Outcome** | Final diagnosis provided by expert cardiologist | String | Normal, Abnormal |
 
-### Spectral shape (learned representation)
-- MFCCs + deltas
+Describe:
+
+* Outcome classes
+* Murmur classes
+* Number of patients
+* Number of recordings
+* Class distribution
 
 ---
 
-# 📦 Dataset Format
+## Patient Split
 
-Each row corresponds to one recording:
+Patients are divided into:
 
-```text
-[file, feature_1, feature_2, ..., feature_n, label]
+* Training (70%)
+* Validation (15%)
+* Test (15%)
+
+using a **patient-level stratified split**, ensuring recordings from the same patient never appear in multiple subsets.
+
+---
+
+# Machine Learning Pipeline
+
+The project follows the pipeline below:
+
+```
+Raw WAV files
+        │
+        ▼
+Exploratory Data Analysis
+        │
+        ▼
+Signal Analysis
+        │
+        ▼
+Feature Extraction
+        │
+        ▼
+feature_dataset.csv
+        │
+        ▼
+Preprocessing
+        │
+        ▼
+Model Training
+        │
+        ▼
+Evaluation
 ```
 
 ---
 
-# 🤖 Compatible Models
+# Exploratory Data Analysis (EDA)
 
-This feature set can be used with:
+Current analyses include:
 
-### Classical ML
-- Logistic Regression
-- Random Forest
-- XGBoost
-- SVM
+* Class balance
+* Recording duration distribution
+* Patient demographics
+* Recording locations
+* Signal quality
+* Noise inspection
 
-### Neural Models
-- MLP on tabular features
-- CNN on spectrograms
-- Transformer-based audio models
+> **TODO**
+
+Add figures.
 
 ---
 
-# 📌 Key Idea
+# Signal Analysis
 
-This project combines:
+Current analyses include:
 
-- **Signal processing**
-- **Clinical domain knowledge (heart cycles)**
-- **Machine learning feature engineering**
-- **Deep learning representations**
+* Raw waveforms
+* FFT
+* Frequency spectrum
+* Mel spectrograms
+* Noise inspection
 
-to build a robust heart sound classification system.
-```
+> **TODO**
+
+Add example visualizations.
+
+---
+
+# Signal Statistics (`signal_statistics.csv`)
+
+Each row corresponds to one recording and summarizes global signal properties used for quality control.
+
+## Available Features
+
+| Feature           | Description             |
+| ----------------- | ----------------------- |
+| file              | Audio filename          |
+| duration          | Recording length        |
+| samplerate        | Sampling frequency      |
+| rms               | Signal energy           |
+| peak              | Maximum amplitude       |
+| dynamic_range     | Peak-to-RMS ratio       |
+| zcr               | Zero Crossing Rate      |
+| spectral_centroid | Frequency center        |
+| bandwidth         | Spectral bandwidth      |
+| rolloff           | Spectral roll-off       |
+| mfcc_mean         | Mean MFCC               |
+| mfcc_std          | MFCC standard deviation |
+| silent            | Silent recording flag   |
+| clipped           | Clipping flag           |
+
+---
+
+## Quality Control
+
+Current quality checks detect:
+
+* Silent recordings
+* Clipped recordings
+
+---
+
+# Feature Extraction
+
+Each recording is converted into a fixed-length numerical feature vector.
+
+Current feature groups include:
+
+* Time-domain features
+* Frequency-domain features
+* Frequency band energy
+* MFCC statistics
+* MFCC delta features
+
+---
+
+## Time-Domain Features
+
+| Feature       | Description         |
+| ------------- | ------------------- |
+| rms           | Signal energy       |
+| peak          | Maximum amplitude   |
+| variance      | Signal variance     |
+| mean          | Signal mean         |
+| std           | Standard deviation  |
+| skew          | Waveform asymmetry  |
+| kurtosis      | Waveform peakedness |
+| zcr           | Zero Crossing Rate  |
+| dynamic_range | Peak-to-RMS ratio   |
+
+---
+
+## Frequency-Domain Features
+
+| Feature            | Description            |
+| ------------------ | ---------------------- |
+| spectral_centroid  | Center frequency       |
+| spectral_bandwidth | Spectral spread        |
+| spectral_rolloff   | Spectral boundary      |
+| spectral_flatness  | Noise vs tonal content |
+
+---
+
+## Frequency Band Energy
+
+| Feature             | Frequency Range |
+| ------------------- | --------------- |
+| band_energy_20_50   | 20–50 Hz        |
+| band_energy_50_100  | 50–100 Hz       |
+| band_energy_100_200 | 100–200 Hz      |
+| band_energy_200_400 | 200–400 Hz      |
+| band_energy_400_800 | 400–800 Hz      |
+
+---
+
+## MFCC Features
+
+Current MFCC representation includes:
+
+* Mean coefficients
+* Standard deviation
+* First-order deltas
+* Second-order deltas
+
+---
+
+# Feature Dataset
+
+Each row in `feature_dataset.csv` represents one recording.
+
+The dataset currently contains:
+
+* Patient metadata
+* Recording information
+* Train / validation / test split
+* Audio features
+* Outcome label
+
+> **TODO**
+
+Document every column in the dataset.
+
+---
+
+# Models
+
+## Current Baselines
+
+* Majority-class baseline
+* Logistic Regression
+
+## Planned Baselines
+
+* Random Forest
+* XGBoost
+* Support Vector Machine
+
+## Planned Deep Learning Models
+
+* Multilayer Perceptron
+* CNN on log-Mel spectrograms
+* Audio Spectrogram Transformer (AST)
+* Other pretrained audio foundation models
+
+---
+
+# Evaluation
+
+Current evaluation metrics:
+
+* Accuracy
+* Precision
+* Recall
+* F1-score
+
+> **TODO**
+
+Include:
+
+* Confusion matrix
+* ROC curve
+* Precision-Recall curve
+* Cross-validation strategy
+
+---
+
+# How to Run
+
+> **TODO**
+
+Include commands for:
+
+* Dataset preparation
+* Patient splitting
+* Feature extraction
+* Model training
+* Model evaluation
+
+---
+
+# Experiments
+
+> **TODO**
+
+Document all experiments.
+
+Suggested sections:
+
+* Metadata only
+* Audio features only
+* Combined features
+* Feature ablation
+* Hyperparameter search
+
+---
+
+# Results
+
+> **TODO**
+
+Summarize model performance.
+
+Suggested table:
+
+| Model | Validation Accuracy | Test Accuracy | Notes |
+| ----- | ------------------- | ------------- | ----- |
+
+---
+
+# Future Work
+
+Potential future directions include:
+
+* Additional handcrafted features
+* Heart-cycle segmentation
+* Feature selection
+* SHAP explainability
+* Deep learning architectures
+* Self-supervised audio models
+* Ensemble learning
+* Clinical interpretability
+
+---
+
+# References
+
+> **TODO**
+
+Add references for:
+
+* CirCor Dataset
+* Relevant papers
+* Feature extraction methods
+* Machine learning models
