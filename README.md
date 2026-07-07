@@ -163,13 +163,14 @@ The CirCor DigiScope dataset provides patient-level metadata, clinical annotatio
 | **Diastolic murmur quality** | Acoustic quality of the diastolic murmur | String | Blowing, Harsh |
 | **Outcome** | Final diagnosis provided by expert cardiologist | String | Normal, Abnormal |
 
-Describe:
+Our task is to predict `Outcome`.
+The original dataset has been collected from 942 patients, with 23 different features. The total number of `.wav` recordings amounts to 3163.
+The distribution of the observations w.r.t. the outcome class is even
 
-* Outcome classes
-* Murmur classes
-* Number of patients
-* Number of recordings
-* Class distribution
+| Outcome | |
+|---------|--|
+| Normal | 0.515924 |
+| Abnormal | 0.484076 |
 
 ---
 
@@ -227,9 +228,9 @@ Current analyses include:
 * Signal quality
 * Noise inspection
 
-> **TODO**
-
-Add figures.
+![duration histograms](plots/eda/duration_histogram.png)
+![recording locations](plots/eda/recording_locations.png)
+![recordings per patient](plots/eda/recordings_per_patient.png)
 
 ---
 
