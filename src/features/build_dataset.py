@@ -6,12 +6,14 @@ from src.features.extractor import extract_features
 
 DATA_DIR = "../../data/raw/training_data"
 OUTPUT_FILE = "../../data/processed/feature_dataset.csv"
-N_MFCC = 5
+N_MFCC = 13
 
 # ---------------------------------------------------------
 # Load metadata (patient-level table)
 # ---------------------------------------------------------
 metadata_df = pd.read_csv("../../data/raw/training_data.csv")
+
+metadata_df["Age"] = metadata_df["Age"].fillna("Young adult")
 metadata_df["Patient ID"] = metadata_df["Patient ID"].astype(str)
 
 metadata_lookup = metadata_df.set_index("Patient ID").to_dict(orient="index")
