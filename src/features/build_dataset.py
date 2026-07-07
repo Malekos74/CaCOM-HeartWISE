@@ -3,15 +3,17 @@ from tqdm import tqdm
 
 from src.features.loader import load_audio, get_all_files
 from src.features.extractor import extract_features
+import os
 
-DATA_DIR = "../../data/raw/training_data"
-OUTPUT_FILE = "../../data/processed/feature_dataset.csv"
+print(os.getcwd())
+DATA_DIR = "data/raw/training_data.csv"
+OUTPUT_FILE = "data/processed/feature_dataset.csv"
 N_MFCC = 13
 
 # ---------------------------------------------------------
 # Load metadata (patient-level table)
 # ---------------------------------------------------------
-metadata_df = pd.read_csv("../../data/raw/training_data.csv")
+metadata_df = pd.read_csv(DATA_DIR)
 
 metadata_df["Age"] = metadata_df["Age"].fillna("Young adult")
 metadata_df["Patient ID"] = metadata_df["Patient ID"].astype(str)
@@ -21,7 +23,7 @@ metadata_lookup = metadata_df.set_index("Patient ID").to_dict(orient="index")
 # ---------------------------------------------------------
 # Load patient splits
 # ---------------------------------------------------------
-splits_df = pd.read_csv("../../data/processed/patient_splits.csv")
+splits_df = pd.read_csv("data/processed/patient_splits.csv")
 splits_df["Patient ID"] = splits_df["Patient ID"].astype(str)
 
 split_lookup = dict(zip(splits_df["Patient ID"], splits_df["split"]))
