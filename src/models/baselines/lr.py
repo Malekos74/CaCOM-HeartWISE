@@ -12,15 +12,13 @@ df = pd.get_dummies(df, columns=["Age"], drop_first=True)
 
 df = pd.get_dummies(df, columns=["recording_location"], drop_first=True)
 
+df = pd.get_dummies(df, columns=["Murmur"], drop_first=True)
+
 df["Sex"] = df["Sex"].map({
     "Female": 0,
     "Male": 1
 })
 
-df["Murmur"] = df["Murmur"].map({
-    "Absent": 0,
-    "Present": 1
-})
 
 
 # -----------------------------
@@ -33,7 +31,7 @@ test_df  = df[df["split"] == "test"]
 # -----------------------------
 # Prepare features
 # -----------------------------
-drop_cols = ["Patient ID", "Outcome", "split", "file", "Campaign", "Additional ID"]
+drop_cols = ["Patient ID", "Outcome", "split", "file", "Campaign", "Additional ID", "Height", "Weight"]
 
 X_train = train_df.drop(columns=drop_cols)
 y_train = train_df["Outcome"]
@@ -64,5 +62,5 @@ model.fit(X_train, y_train)
 print("Validation:")
 print(classification_report(y_val, model.predict(X_val)))
 
-print("Test:")
-print(classification_report(y_test, model.predict(X_test)))
+# print("Test:")
+# print(classification_report(y_test, model.predict(X_test)))
