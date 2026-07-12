@@ -1,0 +1,143 @@
+patient_id,true_label,predicted_label,abnormal_probability_percent,result_category,prediction_correct
+49561,Abnormal,Normal,32.8,Missed abnormal,False
+50624,Abnormal,Normal,30.5,Missed abnormal,False
+50782,Abnormal,Normal,26.1,Missed abnormal,False
+50803,Abnormal,Normal,25.1,Missed abnormal,False
+84803,Abnormal,Normal,24.7,Missed abnormal,False
+85286,Normal,Abnormal,73.0,False alarm,False
+85301,Normal,Abnormal,69.0,False alarm,False
+50787,Normal,Abnormal,68.9,False alarm,False
+50057,Normal,Abnormal,68.8,False alarm,False
+68337,Normal,Abnormal,67.7,False alarm,False
+84971,Normal,Abnormal,67.6,False alarm,False
+85203,Normal,Abnormal,65.0,False alarm,False
+50094,Normal,Abnormal,63.5,False alarm,False
+50085,Normal,Abnormal,61.9,False alarm,False
+85000,Normal,Abnormal,61.6,False alarm,False
+85246,Normal,Abnormal,60.9,False alarm,False
+84688,Normal,Abnormal,60.3,False alarm,False
+50747,Normal,Abnormal,60.1,False alarm,False
+85115,Normal,Abnormal,59.4,False alarm,False
+50656,Normal,Abnormal,58.6,False alarm,False
+50221,Normal,Abnormal,57.0,False alarm,False
+50037,Normal,Abnormal,55.9,False alarm,False
+50669,Normal,Abnormal,55.7,False alarm,False
+68705,Normal,Abnormal,55.6,False alarm,False
+50228,Normal,Abnormal,55.5,False alarm,False
+84808,Normal,Abnormal,54.2,False alarm,False
+50770,Normal,Abnormal,53.8,False alarm,False
+84822,Normal,Abnormal,52.0,False alarm,False
+85147,Normal,Abnormal,51.8,False alarm,False
+85086,Normal,Abnormal,50.9,False alarm,False
+50230,Normal,Abnormal,50.4,False alarm,False
+49832,Normal,Abnormal,50.3,False alarm,False
+85240,Normal,Abnormal,49.6,False alarm,False
+50218,Normal,Abnormal,49.5,False alarm,False
+84760,Normal,Abnormal,49.4,False alarm,False
+85186,Normal,Abnormal,48.7,False alarm,False
+50231,Normal,Abnormal,47.0,False alarm,False
+85317,Normal,Abnormal,46.5,False alarm,False
+84804,Normal,Abnormal,46.2,False alarm,False
+84711,Normal,Abnormal,46.1,False alarm,False
+68757,Normal,Abnormal,44.1,False alarm,False
+50258,Normal,Abnormal,43.8,False alarm,False
+50805,Normal,Abnormal,43.7,False alarm,False
+84939,Normal,Abnormal,42.7,False alarm,False
+50667,Normal,Abnormal,42.3,False alarm,False
+50026,Normal,Abnormal,42.2,False alarm,False
+84896,Normal,Abnormal,41.9,False alarm,False
+50213,Normal,Abnormal,41.8,False alarm,False
+50005,Normal,Abnormal,40.3,False alarm,False
+85217,Normal,Abnormal,39.3,False alarm,False
+85222,Normal,Abnormal,38.0,False alarm,False
+84807,Normal,Abnormal,37.2,False alarm,False
+85337,Normal,Abnormal,37.0,False alarm,False
+49968,Normal,Abnormal,35.9,False alarm,False
+68796,Normal,Abnormal,35.1,False alarm,False
+85285,Normal,Abnormal,35.1,False alarm,False
+50119,Normal,Abnormal,35.0,False alarm,False
+49712,Abnormal,Abnormal,95.3,Correctly detected abnormal,True
+49824,Abnormal,Abnormal,90.6,Correctly detected abnormal,True
+68423,Abnormal,Abnormal,84.6,Correctly detected abnormal,True
+49618,Abnormal,Abnormal,84.5,Correctly detected abnormal,True
+68887,Abnormal,Abnormal,83.8,Correctly detected abnormal,True
+50056,Abnormal,Abnormal,81.8,Correctly detected abnormal,True
+50629,Abnormal,Abnormal,80.1,Correctly detected abnormal,True
+64256,Abnormal,Abnormal,79.7,Correctly detected abnormal,True
+50659,Abnormal,Abnormal,79.1,Correctly detected abnormal,True
+49729,Abnormal,Abnormal,78.1,Correctly detected abnormal,True
+68560,Abnormal,Abnormal,75.5,Correctly detected abnormal,True
+84714,Abnormal,Abnormal,74.5,Correctly detected abnormal,True
+49761,Abnormal,Abnormal,71.9,Correctly detected abnormal,True
+84708,Abnormal,Abnormal,70.8,Correctly detected abnormal,True
+50721,Abnormal,Abnormal,70.7,Correctly detected abnormal,True
+69068,Abnormal,Abnormal,70.1,Correctly detected abnormal,True
+49745,Abnormal,Abnormal,69.5,Correctly detected abnormal,True
+50818,Abnormal,Abnormal,67.6,Correctly detected abnormal,True
+85031,Abnormal,Abnormal,66.6,Correctly detected abnormal,True
+50720,Abnormal,Abnormal,65.5,Correctly detected abnormal,True
+68857,Abnormal,Abnormal,65.2,Correctly detected abnormal,True
+49683,Abnormal,Abnormal,64.3,Correctly detected abnormal,True
+85144,Abnormal,Abnormal,63.5,Correctly detected abnormal,True
+68582,Abnormal,Abnormal,62.4,Correctly detected abnormal,True
+85004,Abnormal,Abnormal,61.0,Correctly detected abnormal,True
+49607,Abnormal,Abnormal,60.4,Correctly detected abnormal,True
+69125,Abnormal,Abnormal,60.1,Correctly detected abnormal,True
+84865,Abnormal,Abnormal,59.7,Correctly detected abnormal,True
+85108,Abnormal,Abnormal,59.2,Correctly detected abnormal,True
+68646,Abnormal,Abnormal,59.1,Correctly detected abnormal,True
+50300,Abnormal,Abnormal,59.1,Correctly detected abnormal,True
+85081,Abnormal,Abnormal,58.6,Correctly detected abnormal,True
+85276,Abnormal,Abnormal,57.9,Correctly detected abnormal,True
+50619,Abnormal,Abnormal,56.4,Correctly detected abnormal,True
+50375,Abnormal,Abnormal,56.4,Correctly detected abnormal,True
+77373,Abnormal,Abnormal,56.2,Correctly detected abnormal,True
+68698,Abnormal,Abnormal,55.8,Correctly detected abnormal,True
+68908,Abnormal,Abnormal,55.0,Correctly detected abnormal,True
+68532,Abnormal,Abnormal,54.3,Correctly detected abnormal,True
+68204,Abnormal,Abnormal,53.8,Correctly detected abnormal,True
+85244,Abnormal,Abnormal,53.0,Correctly detected abnormal,True
+68327,Abnormal,Abnormal,52.0,Correctly detected abnormal,True
+49751,Abnormal,Abnormal,51.7,Correctly detected abnormal,True
+50080,Abnormal,Abnormal,51.3,Correctly detected abnormal,True
+85227,Abnormal,Abnormal,50.9,Correctly detected abnormal,True
+68292,Abnormal,Abnormal,50.8,Correctly detected abnormal,True
+50812,Abnormal,Abnormal,50.7,Correctly detected abnormal,True
+68444,Abnormal,Abnormal,49.5,Correctly detected abnormal,True
+50744,Abnormal,Abnormal,48.4,Correctly detected abnormal,True
+51331,Abnormal,Abnormal,47.4,Correctly detected abnormal,True
+50725,Abnormal,Abnormal,46.2,Correctly detected abnormal,True
+85306,Abnormal,Abnormal,44.9,Correctly detected abnormal,True
+78582,Abnormal,Abnormal,44.9,Correctly detected abnormal,True
+85213,Abnormal,Abnormal,44.1,Correctly detected abnormal,True
+50161,Abnormal,Abnormal,43.9,Correctly detected abnormal,True
+49850,Abnormal,Abnormal,42.9,Correctly detected abnormal,True
+68498,Abnormal,Abnormal,41.7,Correctly detected abnormal,True
+68482,Abnormal,Abnormal,41.5,Correctly detected abnormal,True
+49641,Abnormal,Abnormal,40.6,Correctly detected abnormal,True
+50826,Abnormal,Abnormal,40.2,Correctly detected abnormal,True
+84706,Abnormal,Abnormal,38.1,Correctly detected abnormal,True
+68576,Abnormal,Abnormal,37.4,Correctly detected abnormal,True
+85169,Abnormal,Abnormal,37.1,Correctly detected abnormal,True
+84996,Abnormal,Abnormal,37.1,Correctly detected abnormal,True
+68279,Abnormal,Abnormal,35.2,Correctly detected abnormal,True
+50762,Normal,Normal,33.7,Correctly detected normal,True
+50008,Normal,Normal,33.7,Correctly detected normal,True
+85077,Normal,Normal,33.3,Correctly detected normal,True
+85128,Normal,Normal,31.9,Correctly detected normal,True
+84793,Normal,Normal,31.5,Correctly detected normal,True
+50145,Normal,Normal,30.5,Correctly detected normal,True
+50009,Normal,Normal,30.2,Correctly detected normal,True
+85250,Normal,Normal,29.2,Correctly detected normal,True
+68504,Normal,Normal,27.0,Correctly detected normal,True
+84761,Normal,Normal,26.4,Correctly detected normal,True
+84740,Normal,Normal,26.4,Correctly detected normal,True
+50793,Normal,Normal,26.4,Correctly detected normal,True
+84775,Normal,Normal,25.1,Correctly detected normal,True
+50272,Normal,Normal,24.9,Correctly detected normal,True
+50121,Normal,Normal,24.3,Correctly detected normal,True
+85212,Normal,Normal,24.0,Correctly detected normal,True
+85118,Normal,Normal,22.1,Correctly detected normal,True
+84730,Normal,Normal,21.2,Correctly detected normal,True
+50800,Normal,Normal,20.9,Correctly detected normal,True
+50766,Normal,Normal,18.9,Correctly detected normal,True

@@ -1,0 +1,109 @@
+HEART-SOUND CLASSIFICATION RESULTS
+==================================
+
+Chosen abnormal-probability threshold
+-------------------------------------
+Threshold: 0.34
+
+A patient is classified as Abnormal when:
+
+    predicted probability of Abnormal >= 0.34
+
+A patient is classified as Normal when:
+
+    predicted probability of Abnormal < 0.34
+
+
+PATIENT COUNTS
+==============
+
+Total evaluated patients: 142
+
+Actual condition
+----------------
+Actually Abnormal: 70
+Actually Normal:   72
+
+Model predictions
+-----------------
+Predicted Abnormal: 117
+Predicted Normal:   25
+
+
+DETECTED VERSUS ACTUAL
+======================
+
+Abnormal patients
+-----------------
+Actually Abnormal:              70
+Correctly detected as Abnormal: 65
+Missed and predicted Normal:    5
+
+The model detected 65 of the 70 truly abnormal patients.
+
+This corresponds to a recall of:
+
+    92.9%
+
+Normal patients
+---------------
+Actually Normal:                72
+Correctly detected as Normal:   20
+Incorrectly flagged Abnormal:   52
+
+The model correctly recognized 20 of the 72 truly normal patients.
+
+The number of false alarms was:
+
+    52
+
+
+INTERPRETING ABNORMAL PREDICTIONS
+================================
+
+Patients predicted Abnormal:          117
+Predictions that were truly Abnormal: 65
+Predictions that were false alarms:   52
+
+When the model predicted Abnormal, it was correct:
+
+    55.6% of the time
+
+This is the precision.
+
+
+MAIN PERFORMANCE METRICS
+========================
+
+Precision:          55.6%
+Recall:             92.9%
+F1-score:           69.5%
+Accuracy:           59.9%
+Balanced accuracy:  60.3%
+
+
+CONFUSION MATRIX IN PLAIN LANGUAGE
+==================================
+
+Correctly detected abnormal patients: 65
+Missed abnormal patients:             5
+False alarms:                         52
+Correctly detected normal patients:   20
+
+
+HOW TO READ THESE RESULTS
+=========================
+
+Recall answers:
+
+    Of all truly abnormal patients, how many did the model detect?
+
+Precision answers:
+
+    Of all patients predicted as abnormal, how many were actually abnormal?
+
+A high recall with lower precision means that the model detects many abnormal
+patients, but it also creates many false alarms.
+
+A higher threshold will usually reduce false alarms and increase precision,
+but it may also miss more abnormal patients and therefore reduce recall.

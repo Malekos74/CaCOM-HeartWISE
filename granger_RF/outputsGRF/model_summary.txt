@@ -1,0 +1,17 @@
+FAST_MODE: True
+Time-series features: 9
+Maximum Granger lag: 2
+Best CV F1: 0.5753
+Threshold: 0.34
+
+Validation:
+Precision: 0.5225
+Recall: 0.8657
+F1: 0.6517
+Balanced accuracy: 0.5747
+
+Test:
+Precision: 0.5556
+Recall: 0.9286
+F1: 0.6952
+Balanced accuracy: 0.6032
